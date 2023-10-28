@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TicketsViewModel : ViewModel(){
+class InProgressTicketsViewModel : ViewModel() {
     var ticketList: ArrayList<Ticket> = arrayListOf()
     var list = MutableLiveData<ArrayList<Ticket>>()
 
@@ -17,13 +17,11 @@ class TicketsViewModel : ViewModel(){
     }
 
     private fun getTickets() {
-
-        CoroutineScope(Dispatchers.IO).launch{
-            val call = ApiDbClient.service.getTickets("overcome")
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = ApiDbClient.service.getTickets("inprogress")
             val ticket = call.execute().body()
             ticketList = ((ticket?.tickets ?: emptyList()) as ArrayList<Ticket>)
             list.postValue(ticketList)
-
         }
     }
 }

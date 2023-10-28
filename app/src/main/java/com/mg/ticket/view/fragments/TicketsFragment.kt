@@ -1,6 +1,5 @@
 package com.mg.ticket.view.fragments
 
-import android.app.AlertDialog
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -16,14 +15,20 @@ import com.mg.ticket.helper.TicketClick
 import com.mg.ticket.databinding.FragmentTicketsBinding
 import com.mg.ticket.model.enties.Ticket
 import com.mg.ticket.view.adapters.AdapterTicket
-import com.mg.ticket.viewmodel.TicketsViewModel
+import com.mg.ticket.viewmodel.InProgressTicketsViewModel
+import com.mg.ticket.viewmodel.NewTicketsViewModel
+import com.mg.ticket.viewmodel.ResolvedTicketsViewModel
 
 
 class TicketsFragment : Fragment(R.layout.fragment_tickets), TicketClick {
 
     private lateinit var binding: FragmentTicketsBinding
-    private val ticketsViewModel: TicketsViewModel by viewModels()
-    private lateinit var adapter: AdapterTicket
+    private lateinit var newAdapter: AdapterTicket
+    private lateinit var inProgressAdapter: AdapterTicket
+    private lateinit var resolvedAdapter: AdapterTicket
+    private val newTicketsViewModel: NewTicketsViewModel by viewModels()
+    private val inProgressTicketsViewModel: InProgressTicketsViewModel by viewModels()
+    private val resolvedTicketsViewModel: ResolvedTicketsViewModel by viewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,21 +44,32 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets), TicketClick {
     }
 
     private fun setup() {
-        adapter = AdapterTicket(arrayListOf(), this)
-
         binding.recyclerNew.layoutManager = LinearLayoutManager(context)
-        binding.recyclerNew.adapter = adapter
-        binding.recyclerInProgress.layoutManager = LinearLayoutManager(context)
-        binding.recyclerInProgress.adapter = adapter
-        binding.recyclerResolved.layoutManager = LinearLayoutManager(context)
-        binding.recyclerResolved.adapter = adapter
+        newAdapter = AdapterTicket(arrayListOf(), this)
+        binding.recyclerNew.adapter = newAdapter
 
-        ticketsViewModel.list.observe(viewLifecycleOwner) { newTicket ->
-            adapter.updateItems(newTicket)
+        newTicketsViewModel.list.observe(viewLifecycleOwner) { newTicket ->
+            newAdapter.updateItems(newTicket)
+        }
+
+        binding.recyclerInProgress.layoutManager = LinearLayoutManager(context)
+        inProgressAdapter = AdapterTicket(arrayListOf(), this)
+        binding.recyclerInProgress.adapter = inProgressAdapter
+
+        inProgressTicketsViewModel.list.observe(viewLifecycleOwner) { inProgressTicket ->
+            inProgressAdapter.updateItems(inProgressTicket)
+        }
+
+        binding.recyclerResolved.layoutManager = LinearLayoutManager(context)
+        resolvedAdapter = AdapterTicket(arrayListOf(), this)
+        binding.recyclerResolved.adapter = resolvedAdapter
+
+        resolvedTicketsViewModel.list.observe(viewLifecycleOwner) { resolvedTicket ->
+            resolvedAdapter.updateItems(resolvedTicket)
         }
     }
 
-    override fun ticketsClickListener(Ticket: Ticket) {
+override fun ticketsClickListener(Ticket: Ticket) {
         val builder = context?.let { androidx.appcompat.app.AlertDialog.Builder(it) }
         builder?.setTitle("Ticket Details")
 
