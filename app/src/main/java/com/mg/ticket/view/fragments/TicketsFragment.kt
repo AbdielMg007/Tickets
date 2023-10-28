@@ -1,5 +1,6 @@
 package com.mg.ticket.view.fragments
 
+import android.app.AlertDialog
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -53,7 +54,30 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets), TicketClick {
     }
 
     override fun ticketsClickListener(Ticket: Ticket) {
-        Toast.makeText(context, "Hola", Toast.LENGTH_SHORT).show()
+        val builder = context?.let { androidx.appcompat.app.AlertDialog.Builder(it) }
+        builder?.setTitle("Ticket Details")
+
+        val ticketDetails = buildTicketDetailsString(Ticket)
+        builder?.setMessage(ticketDetails)
+
+        builder?.setPositiveButton("Aceptar", null)
+        builder?.create()?.show()
+    }
+
+    private fun buildTicketDetailsString(ticket: Ticket): String {
+        val builder = StringBuilder()
+        builder.append("ID: ${ticket.ID}\n")
+        builder.append("Title: ${ticket.Title}\n")
+        builder.append("Date: ${ticket.Date}\n")
+        builder.append("Responsible Name: ${ticket.ResponsibleName}\n")
+        builder.append("Team: ${ticket.Team}\n")
+        builder.append("Incident Type: ${ticket.IncidentType}\n")
+        builder.append("Severity: ${ticket.Severity}\n")
+        builder.append("Software Version: ${ticket.SoftwareVersion}\n")
+        builder.append("Problem Description: ${ticket.ProblemDescription}\n")
+        builder.append("Status: ${ticket.Status}\n")
+
+        return builder.toString()
     }
 
 }

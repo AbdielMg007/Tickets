@@ -34,9 +34,11 @@
             android:id="@+id/titleTicket"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
             android:text="TextView"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idTicket" />
@@ -46,30 +48,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
             app:layout_constraintEnd_toStartOf="@+id/titleTicket"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTicket" />
+            app:layout_constraintTop_toBottomOf="@+id/idTicket" />
 
         <TextView
             android:id="@+id/Severity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/titleTicket"
-            app:layout_constraintTop_toBottomOf="@+id/titleTicket" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:text="@string/view"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/Severity"
-            app:layout_constraintStart_toEndOf="@+id/IncidentType" />
+            app:layout_constraintTop_toBottomOf="@+id/idTicket" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
