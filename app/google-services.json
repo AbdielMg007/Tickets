@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "561637625887",
+    "project_id": "tickets-overcome",
+    "storage_bucket": "tickets-overcome.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561637625887:android:7f9a8a6c0ad9b23aff452a",
+        "android_client_info": {
+          "package_name": "com.mg.ticket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQFeC_kukTnXokopa6nEY1luYZ4b6NcwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
