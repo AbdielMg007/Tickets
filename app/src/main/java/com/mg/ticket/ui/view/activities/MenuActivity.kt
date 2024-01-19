@@ -1,4 +1,4 @@
-package com.mg.ticket.view.activities
+package com.mg.ticket.ui.view.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,8 +10,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.mg.ticket.R
 import com.mg.ticket.databinding.ActivityMenuBinding
-import com.mg.ticket.view.fragments.ProfileFragment
-import com.mg.ticket.view.fragments.TicketsFragment
+import com.mg.ticket.ui.view.fragments.ProfileFragment
+import com.mg.ticket.ui.view.fragments.TicketsFragment
 
 class MenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding

@@ -1,6 +1,6 @@
-package com.mg.ticket.model.network
+package com.mg.ticket.data.network
 
-import com.mg.ticket.model.enties.CallTickets
+import com.mg.ticket.data.model.CallTickets
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Url

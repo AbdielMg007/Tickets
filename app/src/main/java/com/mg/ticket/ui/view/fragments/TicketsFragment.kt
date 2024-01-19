@@ -1,4 +1,4 @@
-package com.mg.ticket.view.fragments
+package com.mg.ticket.ui.view.fragments
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -11,13 +11,13 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.mg.ticket.R
-import com.mg.ticket.helper.TicketClick
+import com.mg.ticket.ui.helper.TicketClick
 import com.mg.ticket.databinding.FragmentTicketsBinding
-import com.mg.ticket.model.enties.Ticket
-import com.mg.ticket.view.adapters.AdapterTicket
-import com.mg.ticket.viewmodel.InProgressTicketsViewModel
-import com.mg.ticket.viewmodel.NewTicketsViewModel
-import com.mg.ticket.viewmodel.ResolvedTicketsViewModel
+import com.mg.ticket.data.model.Ticket
+import com.mg.ticket.ui.adapters.AdapterTicket
+import com.mg.ticket.ui.viewmodel.InProgressTicketsViewModel
+import com.mg.ticket.ui.viewmodel.NewTicketsViewModel
+import com.mg.ticket.ui.viewmodel.ResolvedTicketsViewModel
 
 
 class TicketsFragment : Fragment(R.layout.fragment_tickets), TicketClick {

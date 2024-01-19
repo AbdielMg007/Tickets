@@ -1,4 +1,4 @@
-package com.mg.ticket.view.fragments
+package com.mg.ticket.ui.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import androidx.core.view.isInvisible
 import com.google.firebase.auth.FirebaseAuth
 import com.mg.ticket.R
 import com.mg.ticket.databinding.FragmentCreateAccountBinding
-import com.mg.ticket.view.activities.MenuActivity
+import com.mg.ticket.ui.view.activities.MenuActivity
 
 class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
     private lateinit var binding: FragmentCreateAccountBinding

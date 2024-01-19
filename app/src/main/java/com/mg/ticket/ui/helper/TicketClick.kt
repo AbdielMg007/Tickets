@@ -1,6 +1,6 @@
-package com.mg.ticket.helper
+package com.mg.ticket.ui.helper
 
-import com.mg.ticket.model.enties.Ticket
+import com.mg.ticket.data.model.Ticket
 
 
 interface TicketClick {

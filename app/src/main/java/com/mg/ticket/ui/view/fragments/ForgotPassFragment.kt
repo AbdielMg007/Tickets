@@ -1,4 +1,4 @@
-package com.mg.ticket.view.fragments
+package com.mg.ticket.ui.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

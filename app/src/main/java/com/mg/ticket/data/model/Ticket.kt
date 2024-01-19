@@ -1,4 +1,4 @@
-package com.mg.ticket.model.enties
+package com.mg.ticket.data.model
 
 data class Ticket(
     val ID: Int,

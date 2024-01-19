@@ -1,14 +1,14 @@
-package com.mg.ticket.viewmodel
+package com.mg.ticket.ui.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mg.ticket.model.enties.Ticket
-import com.mg.ticket.model.network.ApiDbClient
+import com.mg.ticket.data.model.Ticket
+import com.mg.ticket.data.network.ApiDbClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class InProgressTicketsViewModel : ViewModel() {
+class ResolvedTicketsViewModel : ViewModel() {
     var ticketList: ArrayList<Ticket> = arrayListOf()
     var list = MutableLiveData<ArrayList<Ticket>>()
 
@@ -18,7 +18,7 @@ class InProgressTicketsViewModel : ViewModel() {
 
     private fun getTickets() {
         CoroutineScope(Dispatchers.IO).launch {
-            val call = ApiDbClient.service.getTickets("inprogress")
+            val call = ApiDbClient.service.getTickets("resolved")
             val ticket = call.execute().body()
             ticketList = ((ticket?.tickets ?: emptyList()) as ArrayList<Ticket>)
             list.postValue(ticketList)

@@ -1,11 +1,11 @@
-package com.mg.ticket.view.adapters
+package com.mg.ticket.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mg.ticket.databinding.CardTicketBinding
-import com.mg.ticket.helper.TicketClick
-import com.mg.ticket.model.enties.Ticket
+import com.mg.ticket.ui.helper.TicketClick
+import com.mg.ticket.data.model.Ticket
 
 class AdapterTicket(private var ticket: ArrayList<Ticket>, private val TicketClick: TicketClick) : RecyclerView.Adapter<AdapterTicket.TicketViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TicketViewHolder {

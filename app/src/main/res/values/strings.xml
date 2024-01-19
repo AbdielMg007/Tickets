@@ -16,4 +16,5 @@
     <string name="in_progress">En proceso</string>
     <string name="resolved">Atendido</string>
     <string name="view">Ver</string>
+    <string name="text_empty_alert">Favor de llenar todos los campos</string>
 </resources>

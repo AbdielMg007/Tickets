@@ -1,4 +1,4 @@
-package com.mg.ticket.view.activities
+package com.mg.ticket.ui.view.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import androidx.fragment.app.commit
 import com.google.firebase.auth.FirebaseAuth
 import com.mg.ticket.R
 import com.mg.ticket.databinding.ActivityLoginBinding
-import com.mg.ticket.view.fragments.EntryFragment
+import com.mg.ticket.ui.view.fragments.EntryFragment
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
