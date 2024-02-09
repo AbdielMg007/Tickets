@@ -5,8 +5,10 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.mg.ticket.R
 import com.mg.ticket.databinding.FragmentCreateAccountBinding
@@ -23,29 +25,37 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
 
     private fun setup() {
         binding.progressBarCreateAccount.isInvisible = true
+        backPress()
         binding.entryCreateBtn.setOnClickListener {
             binding.progressBarCreateAccount.isInvisible = false
             entryBtnAction()
         }
     }
 
+    private fun backPress() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_global_entryFragment)
+        }
+    }
+
     private fun entryBtnAction() {
-        if(binding.emailCreateInput.text.isNotEmpty() && binding.passwordCreateInput.text.isNotEmpty()){
-            FirebaseAuth.getInstance()
-                .createUserWithEmailAndPassword(binding.emailCreateInput.text.toString(), binding.passwordCreateInput.text.toString()).addOnCompleteListener{
-                    if (it.isSuccessful){
-                        val nextScreen = Intent(context, MenuActivity::class.java)
-                        binding.progressBarCreateAccount.isInvisible = true
-                        startActivity(nextScreen)
-                    }else{
-                        binding.progressBarCreateAccount.isInvisible = true
-                        showAlert()
-                    }
-                }
-        }else{
+        if(binding.emailCreateInput.text.isEmpty() && binding.passwordCreateInput.text.isEmpty()){
             binding.progressBarCreateAccount.isInvisible = true
             Toast.makeText(context, resources.getString(R.string.text_empty_alert), Toast.LENGTH_SHORT).show()
+            return
         }
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(
+            binding.emailCreateInput.text.toString(),
+            binding.passwordCreateInput.text.toString()
+        ).addOnCompleteListener{
+                if (it.isSuccessful){
+                    val nextScreen = Intent(context, MenuActivity::class.java)
+                    binding.progressBarCreateAccount.isInvisible = true
+                    startActivity(nextScreen)
+                }
+                binding.progressBarCreateAccount.isInvisible = true
+                showAlert()
+            }
     }
 
     private fun showAlert() {

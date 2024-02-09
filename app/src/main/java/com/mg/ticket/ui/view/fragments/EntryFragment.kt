@@ -5,9 +5,11 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import androidx.fragment.app.commit
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.mg.ticket.R
 import com.mg.ticket.databinding.FragmentEntryBinding
@@ -38,13 +40,14 @@ class EntryFragment : Fragment(R.layout.fragment_entry) {
         }
     }
 
+
+
     private fun entryBtnAction() {
         if (binding.emailInput.text.isEmpty() || binding.passwordInput.text.isEmpty()) {
             binding.progressBar.isInvisible = true
             Toast.makeText(context, resources.getString(R.string.text_empty_alert), Toast.LENGTH_SHORT).show()
             return
         }
-
         FirebaseAuth.getInstance().signInWithEmailAndPassword(
             binding.emailInput.text.toString(),
             binding.passwordInput.text.toString()
@@ -53,26 +56,19 @@ class EntryFragment : Fragment(R.layout.fragment_entry) {
                 val nextScreen = Intent(context, MenuActivity::class.java)
                 binding.progressBar.isInvisible = true
                 startActivity(nextScreen)
-            } else {
-                binding.progressBar.isInvisible = true
-                showAlert()
             }
+            binding.progressBar.isInvisible = true
+            showAlert()
         }
     }
 
 
     private fun loginEntryTvAction() {
-        requireActivity().supportFragmentManager.commit {
-            replace(R.id.fragmentLogin, CreateAccountFragment())
-            addToBackStack(null)
-        }
+        findNavController().navigate(R.id.action_entryFragment_to_createAccountFragment)
     }
 
     private fun forgotTvAction() {
-        requireActivity().supportFragmentManager.commit {
-            replace(R.id.fragmentLogin, ForgotPassFragment())
-            addToBackStack(null)
-        }
+        findNavController().navigate(R.id.action_entryFragment_to_forgotPassFragment)
     }
 
     private fun showAlert() {

@@ -15,15 +15,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setup()
-
-    }
-
-    private fun setup() {
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add(R.id.fragmentLogin, EntryFragment())
-        }
     }
     public override fun onResume() {
         super.onResume()
@@ -32,8 +23,6 @@ class LoginActivity : AppCompatActivity() {
             val pass = Intent(this, MenuActivity::class.java)
             startActivity(pass)
             finish()
-        } else {
-            setup()
         }
     }
 
