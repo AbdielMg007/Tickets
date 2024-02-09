@@ -44,15 +44,15 @@ class CreateAccountFragment : Fragment(R.layout.fragment_create_account) {
                 }
         }else{
             binding.progressBarCreateAccount.isInvisible = true
-            Toast.makeText(context,"Favor de llenar todos los campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, resources.getString(R.string.text_empty_alert), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun showAlert() {
         val builder = context?.let { AlertDialog.Builder(it) }
-        builder?.setTitle("Error")
-        builder?.setMessage("Se ha generado un error al crear la cuenta, revise si los datos son correctos")
-        builder?.setPositiveButton("Aceptar", null)
+        builder?.setTitle(resources.getString(R.string.error))
+        builder?.setMessage(resources.getString(R.string.error_create_account))
+        builder?.setPositiveButton(resources.getString(R.string.accept), null)
         builder?.create()?.show()
     }
 }

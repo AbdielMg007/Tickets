@@ -40,7 +40,7 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets), TicketClick {
         if (isConnected)
             setup()
         else
-            Toast.makeText(context, "No hay internet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, resources.getString(R.string.not_internet), Toast.LENGTH_SHORT).show()
     }
 
     private fun setup() {
@@ -76,7 +76,7 @@ override fun ticketsClickListener(Ticket: Ticket) {
         val ticketDetails = buildTicketDetailsString(Ticket)
         builder?.setMessage(ticketDetails)
 
-        builder?.setPositiveButton("Aceptar", null)
+        builder?.setPositiveButton(resources.getString(R.string.accept), null)
         builder?.create()?.show()
     }
 

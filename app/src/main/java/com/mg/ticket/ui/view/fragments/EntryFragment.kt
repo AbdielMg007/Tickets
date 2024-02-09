@@ -77,9 +77,9 @@ class EntryFragment : Fragment(R.layout.fragment_entry) {
 
     private fun showAlert() {
         val builder = context?.let { AlertDialog.Builder(it) }
-        builder?.setTitle("Error")
-        builder?.setMessage("Verifiique si su usuario o contraseña son correctos")
-        builder?.setPositiveButton("Aceptar", null)
+        builder?.setTitle(resources.getString(R.string.error))
+        builder?.setMessage(resources.getString(R.string.error_create_account))
+        builder?.setPositiveButton(resources.getString(R.string.accept), null)
         builder?.create()?.show()
     }
 }

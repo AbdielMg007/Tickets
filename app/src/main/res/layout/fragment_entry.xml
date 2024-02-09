@@ -61,11 +61,12 @@
         android:id="@+id/forgotTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
         android:text="@string/forgot_pass"
         android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/loginEntryTv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entryBtn" />
 
     <Button
         android:id="@+id/entryBtn"

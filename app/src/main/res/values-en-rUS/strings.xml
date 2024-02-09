@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ticket</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_pass">Forgot your password?</string>
+    <string name="havent_account">Do not have an account?</string>
+    <string name="entry">Enter</string>
+    <string name="sent">Send</string>
+    <string name="sent_email">Enter your email</string>
+    <string name="create_account">Create your account</string>
+    <string name="new_ticket">Create Ticket</string>
+    <string name="ticket_new">New</string>
+    <string name="in_progress">In Progress</string>
+    <string name="resolved">Resolved</string>
+    <string name="view">View</string>
+    <string name="accept">Accept</string>
+    <string name="error">Error</string>
+    <string name="text_empty_alert">Please fill in all fields</string>
+    <string name="error_create_account">An error occurred while creating the account</string>
+    <string name="add_account">Enter your email</string>
+    <string name="sent_account">Email sent</string>
+    <string name="log_for_continue">Log in to access this section</string>
+    <string name="not_internet">Could not establish a connection</string>
+</resources>

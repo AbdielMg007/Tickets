@@ -23,14 +23,14 @@ class ForgotPassFragment : Fragment(R.layout.fragment_forgot_pass) {
             if(binding.emailForgotInput.text.isNotEmpty()){
                 FirebaseAuth.getInstance().sendPasswordResetEmail(binding.emailForgotInput.text.toString()).addOnCompleteListener {
                     if (it.isSuccessful){
-                        Toast.makeText(context,"Se ah enviado un correo para restablecer su contraseña", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context,resources.getString(R.string.sent_account), Toast.LENGTH_SHORT).show()
                         requireActivity().supportFragmentManager.popBackStack()
                     }
                     else
-                        Toast.makeText(context,"Ah ocurrido un error, revise si el correo es autentico", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context,resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
                 }
             }else{
-                Toast.makeText(context,"Ingrese su correo", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,resources.getString(R.string.add_account), Toast.LENGTH_SHORT).show()
             }
 
         }

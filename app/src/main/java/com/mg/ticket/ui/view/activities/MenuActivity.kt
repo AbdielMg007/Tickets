@@ -79,7 +79,7 @@ class MenuActivity : AppCompatActivity() {
             val returnLogin = Intent(this, LoginActivity::class.java)
             startActivity(returnLogin)
             finish()
-            Toast.makeText(applicationContext,"Inicia sesion para acceder a este apartado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,resources.getString(R.string.log_for_continue) , Toast.LENGTH_SHORT).show()
         }
     }
 }
