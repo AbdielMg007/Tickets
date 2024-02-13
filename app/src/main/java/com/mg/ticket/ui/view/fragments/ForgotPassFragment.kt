@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.mg.ticket.R
 import com.mg.ticket.databinding.FragmentForgotPassBinding
+import com.mg.ticket.ui.helper.FragmentBack.backPress
 
 class ForgotPassFragment : Fragment(R.layout.fragment_forgot_pass) {
 
@@ -21,22 +22,20 @@ class ForgotPassFragment : Fragment(R.layout.fragment_forgot_pass) {
     }
 
     private fun setup() {
-        backPress()
+        //With this function if press the button back return to EntryFragment
+        backPress(this)
         binding.entryForgotBtn.setOnClickListener{
-            if(binding.emailForgotInput.text.isEmpty()){
+            //Show warning if is empty entryForgotBtn
+            if(binding.emailForgotInput.text.isEmpty())
                 Toast.makeText(context,resources.getString(R.string.add_account), Toast.LENGTH_SHORT).show()
-            }
+            //If the email is correct continue with firebase ResetPass
             FirebaseAuth.getInstance().sendPasswordResetEmail(
                 binding.emailForgotInput.text.toString()
             ).addOnCompleteListener {
+                //Show if it's all good
                 val messageResId = if (it.isSuccessful) R.string.sent_account else R.string.error
                 Toast.makeText(context, resources.getString(messageResId), Toast.LENGTH_SHORT).show()
             }
-        }
-    }
-    private fun backPress() {
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            findNavController().navigate(R.id.action_global_entryFragment)
         }
     }
 }

@@ -22,6 +22,9 @@ import com.mg.ticket.ui.viewmodel.ResolvedTicketsViewModel
 
 class TicketsFragment : Fragment(R.layout.fragment_tickets), TicketClick {
 
+
+    //that need a refactor
+
     private lateinit var binding: FragmentTicketsBinding
     private lateinit var newAdapter: AdapterTicket
     private lateinit var inProgressAdapter: AdapterTicket

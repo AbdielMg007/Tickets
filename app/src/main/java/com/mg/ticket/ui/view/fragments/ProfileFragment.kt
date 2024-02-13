@@ -22,6 +22,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     private fun setup() {
+        //Show your email with firebase auth
         auth = Firebase.auth
         val user = Firebase.auth.currentUser
         user?.let {

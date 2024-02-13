@@ -17,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
     public override fun onResume() {
+        //Check if you have already logged
         super.onResume()
         val currentUser = FirebaseAuth.getInstance().currentUser
         if (currentUser != null) {
