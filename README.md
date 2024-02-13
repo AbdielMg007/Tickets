@@ -4,6 +4,8 @@
 
 ![image](https://github.com/AbdielMg007/Tickets/assets/55472678/aa87fcc3-e3ae-474e-856b-2e7d88b2a58e)
 
+//newn update for the language
+
 Login
 
 | ![Screenshot 1](https://github.com/AbdielMg007/Tickets/assets/55472678/462c9fb0-5608-45aa-a66f-753dfc3eb1b0) | ![Screenshot 2](https://github.com/AbdielMg007/Tickets/assets/55472678/328ee14e-4c80-40bd-b984-89392494de7c) | ![Screenshot 3](https://github.com/AbdielMg007/Tickets/assets/55472678/928761b6-7c06-4eb9-9a67-e501401da39f) |
